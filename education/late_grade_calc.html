@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Professor Slack's Late Grade Calculator</title>
+
+    <script>
+        function calculate_late_grade(days_late)
+        {
+            late_penalty = 0.0003*Math.pow(days_late,3) - 0.0421*Math.pow(days_late,2) + 1.9866*days_late - 1.9447;
+            late_penalty = Math.floor(late_penalty);
+            return late_penalty;
+        }
+        
+        function display_late_penalty()
+        {
+            days_late = document.getElementById('days_late_input').value;
+            alert("If submitted " + days_late + " days late then " + calculate_late_grade(days_late) + "% will be deducted from your assignment grade.");
+        }
+    </script>
+</head>
+<body>
+    <h2>Professor Slack's Late Grade Calculator</h2>
+    <p></p>
+    <p>Number of Days Late: <input type="number" id="days_late_input"><br>
+        <button onclick="display_late_penalty()">Calculate Late Penalty</button>
+    </p>
+</body>
+</html>
