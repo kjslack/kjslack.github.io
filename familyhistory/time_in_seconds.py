@@ -1,16 +1,17 @@
 import pyperclip
+import future
 
 
 def GetTime(text_header):
     print(text_header)
-    hours = raw_input("Hours: ")
-    minutes = raw_input("Minutes: ")
-    seconds = raw_input("Seconds: ")
+    hours = input("Hours: ")
+    minutes = input("Minutes: ")
+    seconds = input("Seconds: ")
     total_seconds = (int(hours) * 3600) + (int(minutes) * 60) + int(seconds)
     print(total_seconds)
     return total_seconds
 
-url = raw_input("Youtube Video URL = ")
+url = input("Youtube Video URL = ")
 
 while True:    
     start_time = GetTime("Start Time");
