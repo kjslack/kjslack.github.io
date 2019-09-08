@@ -1,0 +1,58 @@
+<script>
+    function filter(searchFieldName,column){
+        var input, filter, table, tr, td, i;
+        input = document.getElementById(searchFieldName);
+        filter = input.value.toUpperCase();
+        table = document.getElementById("recordingsTable");
+        tr=table.getElementsByTagName("tr");
+        
+        for(i = 0; i < tr.length; i++)
+        {
+            td = tr[i].getElementsByTagName("td")[column];
+            if(td)
+            {
+                if(td.innerHTML.toUpperCase().indexOf(filter) > -1)
+                {
+                    tr[i].style.display = "";
+                }
+                else
+                {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+<html>
+    <title>Slack Family Recordings</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../kentslack.css">
+    <link rel="stylesheet" href="../black_theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body>
+    <table id="recordingsTable">
+        <tr>
+            <th>Story Title<br /><input type="text" id="titleSearch" onkeyup="filter('titleSearch',0)" placeholder="Search title"></th>
+            <th>Recorded Story<br /><input type="text" id="storySearch" onkeyup="filter('storySearch',1)" placeholder="Search story"></th>
+            <th>People Involved<br /><input type="text" id="peopleSearch" onkeyup="filter('peopleSearch',2)" placeholder="Search people for"></th>
+            <th>Source<br /><input type="text" id="sourceSearch" onkeyup="filter('sourceSearch',3)" placeholder="Search source"></th>
+        </tr>
+        <tr>
+            <td>Grace Bulloch Slack - Personal History</td>
+            <td><iframe width="300" height="169" src="https://www.youtube.com/embed/ughvl5SMz9Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
+            <td>Grace Bulloch Slack, Willaim Lowell Slack</td>
+            <td>Audio Interview with Grace Bulloch Slack - 2018</td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td><iframe width="300" height="169" src="https://www.youtube.com/embed/67SWXDELAcE?rel=0&amp;start=3677;end=4075" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
+            <td>People</td>
+            <td>Source</td>
+        </tr>
+        
+    </table>    
+    
+    </body>
+</html>
