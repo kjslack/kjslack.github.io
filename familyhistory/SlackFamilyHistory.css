@@ -10,8 +10,17 @@ iframe {
     height: auto;
 }
 
+table {
+    border-radius: 15px;
+    border: 1px solid #E8E8E8;
+}
+
 tr:nth-child(even) {
   background-color: #E8E8E8;
+}
+
+tr:hover {
+    background-color: #F3FCFE;
 }
 
 /* 
@@ -33,6 +42,7 @@ only screen and (max-width: 760px),
 		position: absolute;
 		top: -9999px;
 		left: -9999px;
+        background: #fff;
 	}
 	
 	tr { border: 1px solid #ccc; }
