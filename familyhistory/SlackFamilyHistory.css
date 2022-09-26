@@ -1,0 +1,78 @@
+body {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+table {
+    border-radius: 15px;
+    border: 1px solid #E8E8E8;
+}
+
+tr:nth-child(even) {
+  background-color: #E8E8E8;
+}
+
+tr:hover {
+    background-color: #F3FCFE;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+        background: #fff;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 35%; 
+        font-weight: normal; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+        font-weight: bold;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Recording Title"; }
+	td:nth-of-type(2):before { content: "Video / Audio"; }
+	td:nth-of-type(3):before { content: "People Involved"; }
+	td:nth-of-type(4):before { content: "Source"; }
+}
